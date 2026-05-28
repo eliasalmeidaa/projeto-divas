@@ -24,3 +24,6 @@ Thumbs.db
 # Arquivos com credenciais — nunca subir
 aplicationJava.txt
 dadosDB.txt
+
+# Claude Code
+.claude/
