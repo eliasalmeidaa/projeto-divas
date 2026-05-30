@@ -34,6 +34,7 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
+            .headers(h -> h.frameOptions(f -> f.sameOrigin()))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable())
@@ -43,6 +44,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/usuarios/esqueci-senha").permitAll()
                 .requestMatchers(HttpMethod.POST, "/usuarios/resetar-senha").permitAll()
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()
 
                 .requestMatchers(HttpMethod.GET, "/usuarios/todos").hasAuthority("administrador")
                 .requestMatchers(HttpMethod.DELETE, "/usuarios/deletar/**").hasAuthority("administrador")
