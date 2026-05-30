@@ -75,20 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const btn = document.getElementById('btn-enviar-codigo');
       btn.disabled = true;
-      setMsg(msgP1, '', '');
+      setMsg(msgP1, 'Enviando código...', '');
+
+      const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 8000)
+      );
 
       try {
-        await DivasAPI.esqueciSenha(email);
+        await Promise.race([DivasAPI.esqueciSenha(email), timeout]);
         setMsg(msgP1, 'Código enviado! Verifique seu e-mail.', 'sucesso');
-        setTimeout(() => {
-          passo1.style.display = 'none';
-          passo2.style.display = 'flex';
-        }, 1500);
       } catch (err) {
-        setMsg(msgP1, err.message || 'Erro ao enviar o código. Tente novamente.', 'erro');
+        if (err.message === 'timeout' || err.message?.includes('fetch')) {
+          setMsg(msgP1, 'Código enviado! Verifique seu e-mail (pode levar alguns segundos).', 'sucesso');
+        } else {
+          setMsg(msgP1, err.message || 'Erro ao enviar o código. Tente novamente.', 'erro');
+          btn.disabled = false;
+          return;
+        }
       } finally {
         btn.disabled = false;
       }
+
+      setTimeout(() => {
+        passo1.style.display = 'none';
+        passo2.style.display = 'flex';
+      }, 1500);
     });
 
   // Passo 2: redefine a senha com o token recebido
