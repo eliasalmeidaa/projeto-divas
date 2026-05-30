@@ -9,7 +9,7 @@
    ============================================================ */
 
 // URL base do backend Spring Boot (porta padrão do Spring)
-const API_URL = 'http://localhost:8080';
+const API_URL = 'https://projeto-divas-backend.onrender.com';
 
 /* ============================================================
    SESSÃO DO USUÁRIO
