@@ -148,3 +148,51 @@ input {
     z-index: -1;
     right: 11%;
    }
+
+/* =========================================
+   RESPONSIVIDADE — MOBILE (≤ 768px)
+   ========================================= */
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .conteiner {
+    width: 100%;
+    padding: 60px 30px 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    min-height: 100vh;
+  }
+
+  .titulo {
+    margin-bottom: 40px;
+    gap: 16px;
+  }
+
+  .titulo h1 {
+    font-size: 32px;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .passaro {
+    display: none;
+  }
+}

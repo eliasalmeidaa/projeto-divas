@@ -1171,3 +1171,459 @@ footer {
 
     &:hover { color: #EF6A85; }
 }
+
+/* =========================================
+   13. BOTÃO HAMBURGER
+   ========================================= */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #2D1A22;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(45, 26, 34, 0.5);
+    z-index: 1040;
+}
+
+.nav-overlay.ativa {
+    display: block;
+}
+
+/* =========================================
+   14. RESPONSIVIDADE — TABLET (≤ 1024px)
+   ========================================= */
+
+@media (max-width: 1024px) {
+    header {
+        padding: 14px 30px;
+    }
+
+    .apresentacao {
+        width: 100%;
+    }
+
+    .sobre {
+        height: auto;
+        padding: 60px 40px;
+    }
+
+    .textos {
+        margin-top: 100px;
+    }
+
+    .servicos {
+        height: auto;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .informacao {
+        height: auto;
+        padding: 60px 40px;
+    }
+
+    .outros-projetos {
+        height: auto;
+        padding: 60px 40px 40px;
+    }
+
+    .agenda {
+        height: auto;
+        padding: 60px 60px;
+    }
+
+    .contribuir {
+        height: auto;
+        min-height: 500px;
+    }
+}
+
+/* =========================================
+   15. RESPONSIVIDADE — MOBILE (≤ 768px)
+   ========================================= */
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* HEADER */
+    header {
+        padding: 14px 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        z-index: 1050;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav.aberta {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        font-family: "PlayfairDisplay", sans-serif;
+    }
+
+    /* APRESENTAÇÃO */
+    .apresentacao {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 110px 24px 70px;
+        text-align: center;
+    }
+
+    .apresentacao h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .apresentacao h1 span {
+        font-size: 52px;
+    }
+
+    .apresentacao p br {
+        display: none;
+    }
+
+    /* QUEM SOMOS */
+    .sobre {
+        flex-direction: column;
+        height: auto;
+        padding: 60px 24px;
+        gap: 20px;
+        align-items: center;
+        width: calc(100% - 40px);
+    }
+
+    .sobre img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+    }
+
+    .textos {
+        margin-top: 0;
+        align-self: auto;
+    }
+
+    .textos h1 {
+        font-size: 28px;
+    }
+
+    .textos h1 span {
+        font-size: 46px;
+    }
+
+    .bloco-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .destaque-2-ong {
+        position: static;
+        bottom: auto;
+        right: auto;
+        margin-top: 16px;
+        width: fit-content;
+    }
+
+    /* SERVIÇOS */
+    .servicos {
+        height: auto;
+        padding: 60px 24px;
+        width: calc(100% - 40px);
+    }
+
+    .textos-2 {
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .textos-2 h1 {
+        font-size: 28px;
+    }
+
+    .textos-2 h1 span {
+        font-size: 46px;
+    }
+
+    .conteiner {
+        flex-direction: column;
+        margin-top: 30px;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .acolhimento-emocional,
+    .rede-de-apoio {
+        margin: 0;
+        width: 100%;
+    }
+
+    .acolhimento-emocional p,
+    .rede-de-apoio p {
+        word-spacing: normal;
+        text-align: left;
+    }
+
+    /* ATIVIDADES */
+    .atividades {
+        padding: 60px 20px 40px;
+        width: calc(100% - 40px);
+    }
+
+    .textos-3 h1 {
+        font-size: 28px;
+    }
+
+    .textos-3 h1 span {
+        font-size: 46px;
+    }
+
+    .textos-3 p br {
+        display: none;
+    }
+
+    .atividades .opcoes {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .grid-imagens {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .col-span-7,
+    .col-span-6,
+    .col-span-5,
+    .col-span-4,
+    .col-span-3 {
+        grid-column: span 1 !important;
+    }
+
+    .row-span-2 {
+        grid-row: span 1 !important;
+    }
+
+    .photo-card {
+        height: 200px !important;
+    }
+
+    /* INFORMAÇÃO */
+    .informacao {
+        flex-direction: column;
+        height: auto;
+        padding: 60px 24px;
+        gap: 30px;
+        align-items: stretch;
+        width: calc(100% - 40px);
+    }
+
+    .textos-4 h1 {
+        font-size: 28px;
+    }
+
+    .textos-4 h1 span {
+        font-size: 46px;
+    }
+
+    .textos-4 p br {
+        display: none;
+    }
+
+    .opcoes-2 {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .cards-container {
+        height: auto;
+        max-height: 420px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .card-info {
+        max-width: 100%;
+    }
+
+    /* OUTROS PROJETOS */
+    .outros-projetos {
+        height: auto;
+        padding: 60px 24px 40px;
+        width: calc(100% - 40px);
+    }
+
+    .textos-5 h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .textos-5 h1 span {
+        font-size: 46px;
+    }
+
+    .conteiner-projetos {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .projeto-1,
+    .projeto-2,
+    .projeto-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .detalhes p {
+        max-width: 100%;
+        max-height: none;
+    }
+
+    /* AGENDA (seção landing) */
+    .agenda {
+        flex-direction: column;
+        height: auto;
+        padding: 60px 24px;
+        gap: 40px;
+        width: calc(100% - 40px);
+    }
+
+    .textos-6 h1 {
+        font-size: 28px;
+    }
+
+    .textos-6 h1 span {
+        font-size: 46px;
+    }
+
+    .textos-6 p br {
+        display: none;
+    }
+
+    .card-lembrete {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+
+    .card-info p {
+        text-align: left;
+    }
+
+    .detalhes p {
+        text-align: left;
+    }
+
+    .modal-card {
+        width: calc(100% - 48px);
+        max-width: 360px;
+    }
+
+    /* CONTRIBUIR */
+    .contribuir {
+        height: auto;
+        min-height: 480px;
+        padding: 60px 24px;
+        width: calc(100% - 40px);
+    }
+
+    .titulo-8 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .titulo-8 span {
+        font-size: 46px;
+    }
+
+    .paragrafo br {
+        display: none;
+    }
+
+    .botoes {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 24px;
+    }
+
+    .bt-contribuir {
+        text-align: center;
+        width: 200px;
+    }
+
+    /* FOOTER */
+    footer {
+        width: 100%;
+    }
+
+    .conteiner-superior {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .conteudo-1,
+    .conteudo-2,
+    .conteudo-3,
+    .conteudo-4,
+    .conteudo-5 {
+        width: 100%;
+    }
+}

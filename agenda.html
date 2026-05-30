@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="/css/agenda.css" />
   </head>
   <body>
+    <header class="header-mobile">
+      <div class="logo-mobile">
+        <img src="./images/logo.png" alt="Projeto Divas">
+        <span>Projeto Divas</span>
+      </div>
+      <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="Abrir menu lateral">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
     <div class="dashboard-grid">
       <aside class="sidebar-esq">
         <div class="sidebar-topo">
@@ -173,5 +185,22 @@
     <script src="./js/interacoes.js"></script>
     <script src="./js/agenda.js"></script>
     <script src="./js/perfil.js"></script>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <script>
+      (function () {
+        var btn = document.getElementById('btn-menu-mobile');
+        var sidebar = document.querySelector('.sidebar-esq');
+        var overlay = document.getElementById('sidebar-overlay');
+        btn.addEventListener('click', function () {
+          sidebar.classList.toggle('aberta');
+          overlay.classList.toggle('ativa');
+        });
+        overlay.addEventListener('click', function () {
+          sidebar.classList.remove('aberta');
+          overlay.classList.remove('ativa');
+        });
+      })();
+    </script>
   </body>
 </html>

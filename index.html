@@ -18,7 +18,7 @@
 
         <nav>
             <ul>
-                <li><a href="#sobre">Sobre</a></li> 
+                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#atividades">Atividades</a></li>
                 <li><a href="#informacao">Informações</a></li>
@@ -27,8 +27,15 @@
                 <li><a href="#contribuir">Contribuir</a></li>
             </ul>
         </nav>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
+    <div class="nav-overlay" id="nav-overlay"></div>
 
     <!-- APRESENTAÇÃO -->
     <section class="apresentacao">
@@ -696,6 +703,28 @@
          <script src="js/login.js"></script>
           <script src="./js/atividades.js"></script>
          <script src="./js/informacoes.js"></script>
+
+        <script>
+            (function () {
+                var toggle = document.getElementById('menu-toggle');
+                var nav = document.querySelector('nav');
+                var overlay = document.getElementById('nav-overlay');
+                toggle.addEventListener('click', function () {
+                    nav.classList.toggle('aberta');
+                    overlay.classList.toggle('ativa');
+                });
+                overlay.addEventListener('click', function () {
+                    nav.classList.remove('aberta');
+                    overlay.classList.remove('ativa');
+                });
+                document.querySelectorAll('nav a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        nav.classList.remove('aberta');
+                        overlay.classList.remove('ativa');
+                    });
+                });
+            })();
+        </script>
 
 </body>
 </html>
